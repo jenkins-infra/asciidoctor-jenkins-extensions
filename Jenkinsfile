@@ -16,4 +16,11 @@ pipeline {
             }
         }
     }
+
+    post {
+        always {
+            archive 'pkg/*.gem'
+            junit 'spec/reports/**/*.xml'
+        }
+    }
 }
