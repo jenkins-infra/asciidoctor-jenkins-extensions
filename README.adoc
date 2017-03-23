@@ -2,6 +2,7 @@
 
 image::https://ci.jenkins.io/job/Infra/job/asciidoctor-jenkins-extensions/job/master/4/badge/icon["Build status", link="https://ci.jenkins.io/job/Infra/job/asciidoctor-jenkins-extensions/job/master]
 
+
 This gem is a collection of Asciidoctor extensions which enable more advanced
 formatting in Jenkins-related content.
 
@@ -74,6 +75,52 @@ rendering, and provide a link for toggling the Scripted Pipeline.
 The `// Declarative //` or `// Script //` delimiters are *MANDATORY*, even when
 defining a `[pipeline]` block with only one syntax supported. These delimiters
 instruct the extension on how to render the given code.
+
+=== the plugin macro
+
+The `plugin` inline macro can be used to link to plugins on the plugins index
+at https://plugins.jenkins.io/.
+
+Example:
+
+[source, asciidoc]
+----
+plugin:git[The Git Plugin]
+----
+
+=== jenkinsdoc/staplerdoc/javadoc macros
+
+The `jenkinsdoc` inline macro can be used to link to the Jenkins Javadoc at http://javadoc.jenkins.io/.
+
+It supports a variety of different syntaxes. For classes in Jenkins core:
+
+* `jenkinsdoc:hudson.scm.SCM[]` links to the full URL for the class in Jenkins core.
+* `jenkinsdoc:hudson.scm.SCM#all()[]` links to the full URL for the class in Jenkins core, and includes a fragment.
+* `jenkinsdoc:SCM[]` links to the `/byShortName` URL for the class in Jenkins core. Due to the redirect, fragments won't work here.
+
+By default, all of these use the class name as label, but that can be customized if necessary by providing an alternative label between the square brackets.
+
+[source, asciidoc]
+----
+jenkinsdoc:hudson.scm.SCM#all()[a list of all known SCM implementations]
+----
+
+For classes in plugins, the plugin's name (`artifactId`) is put before the class name and separated by colon:
+
+* `jenkinsdoc:git:hudson.plugins.git.GitSCM[]` links to the full URL for the class in the git plugin.
+* `jenkinsdoc:git:hudson.plugins.git.GitSCM#getRepositories--[]` links to the full URL for the class in the git plugin, and includes a fragment.
+
+These use a similar default label if none is set, but it also specified which plugin the class is in. For the previous example, that label would be _hudson.plugins.git.GitSCM in git_.
+
+Two other inline macros, `staplerdoc` and `javadoc` exist and link to the Stapler API documentation and Java API documentation, respectively.
+These do not support the form of `jenkinsci` that only requires the short name, but otherwise work the same way. Examples:
+
+[source, asciidoc]
+----
+javadoc:java.io.File#pathSeparator[the path separator]
+staplerdoc:org.kohsuke.stapler.AncestorInPath[]
+----
+
 
 == Development
 

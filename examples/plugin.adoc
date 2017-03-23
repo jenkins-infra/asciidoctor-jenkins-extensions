@@ -1,0 +1,8 @@
+= plugin macro
+
+The `plugin` inline macro can be used to link to plugins on the plugins index
+at https://plugins.jenkins.io/.
+
+Example:
+
+plugin:git[The Git Plugin]
