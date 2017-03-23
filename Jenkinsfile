@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Build and Test') {
             steps {
-                sh 'gem install bundler -n && bundle install'
+                sh 'gem install bundler -N && bundle install'
                 sh 'bundle exec rake'
             }
         }
