@@ -1,0 +1,84 @@
+= Asciidoctor::Jenkins::Extensions
+
+
+== Installation
+
+Add this line to your application's Gemfile:
+
+[source,ruby]
+----
+gem 'asciidoctor-jenkins-extensions'
+----
+
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install asciidoctor-jenkins-extensions
+
+== Usage
+
+Using this gem inside of an existing Asciidoctor-based project is as
+straight-forward as requiring `asciidoctor/jenkins/extensions`, for example:
+
+[source,ruby]
+----
+require 'asciidoctor/jenkins/extensions'
+----
+
+In link:http://awestruct.org[Awestruct]-based projects, this `require`
+statement should go in `_ext/pipeline.rb`.
+
+=== [pipeline] block
+
+An extension to Asciidoctor syntax adds the `[pipeline]` block for including
+link:https://jenkins.io/doc/book/pipeline[Pipeline] code. This block supports
+both *Declarative Pipeline* and *Pipeline Script* syntax. For example:
+
+
+[source, asciidoc]
+--
+[pipeline]
+----
+// Script //
+node {
+    stage('Build') {
+      checkout scm
+      // Install dependencies
+      sh 'npm install'
+    }
+}
+
+// Declarative //
+pipeline {
+    agent docker: 'node:6.3'
+    stages {
+        stage('Build') {
+            sh 'npm install'
+        }
+    }
+}
+----
+--
+
+This `pipeline` block will _prefer_ the Declarative Pipeline syntax when
+rendering, and provide a link for toggling the Scripted Pipeline.
+
+The `// Declarative //` or `// Script //` delimiters are *MANDATORY*, even when
+defining a `[pipeline]` block with only one syntax supported. These delimiters
+instruct the extension on how to render the given code.
+
+== Development
+
+After checking out the repo, run `bin/setup` to install dependencies. You can
+also run `bin/console` for an interactive prompt that will allow you to
+experiment.
+
+To install this gem onto your local machine, run `bundle exec rake install`. To
+release a new version, update the version number in `version.rb`, and then run
+`bundle exec rake release`, which will create a git tag for the version, push
+git commits and tags, and push the `.gem` file to
+[rubygems.org](https://rubygems.org).
+
