@@ -1,9 +1,10 @@
-require "asciidoctor/jenkins/extensions/version"
-
 module Asciidoctor
   module Jenkins
     module Extensions
-      # Your code goes here...
     end
   end
+end
+
+Dir.glob("#{File.dirname(__FILE__)}/extensions/**/*.rb").each do |f|
+  require f
 end
