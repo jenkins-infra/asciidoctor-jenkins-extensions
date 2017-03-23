@@ -1,5 +1,8 @@
 = Asciidoctor::Jenkins::Extensions
 
+This gem is a collection of Asciidoctor extensions which enable more advanced
+formatting in Jenkins-related content.
+
 
 == Installation
 

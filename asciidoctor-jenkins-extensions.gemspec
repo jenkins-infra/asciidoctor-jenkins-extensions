@@ -9,12 +9,18 @@ Gem::Specification.new do |spec|
   spec.authors       = ["R. Tyler Croy"]
   spec.email         = ["tyler@monkeypox.org"]
 
-  spec.summary       =""
-  spec.description   =""
-  spec.homepage      = 'https://github.com/jenkins-infra'
+  spec.summary       = "a collection of Asciidoctor extensions which enable more advanced
+formatting in Jenkins-related content.
+"
+  spec.description   = "a collection of Asciidoctor extensions which enable more advanced
+formatting in Jenkins-related content.
+"
+  spec.homepage      = 'https://github.com/jenkins-infra/asciidoctor-jenkins-extensions'
 
 
-  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  root = File.dirname(__FILE__)
+  spec.files         = Dir.glob("#{root}/lib/**/*.rb").map { |f| f.gsub("#{root}/", '') }
+  spec.files         << File.basename(__FILE__)
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
