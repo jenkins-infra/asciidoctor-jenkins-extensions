@@ -53,4 +53,36 @@ node {
       expect(rendering).to match(pipeline_div)
     end
   end
+
+  context 'with a [pipeline] block containing both syntaxes' do
+    let(:document) {
+      '''
+[pipeline]
+----
+// Scripted //
+node {
+  echo "hello world"
+}
+// Declarative //
+pipeline {
+  agent any
+  stages { stage("Hello") { steps { echo "World" } } }
+}
+----
+'''
+    }
+
+    it 'should not warn and render a proper block' do
+      expect($stderr).to receive(:puts).never
+      expect(rendering).to match(pipeline_div)
+    end
+
+    it 'should contain a Declarative Pipeline' do
+      expect(rendering).to match(/Jenkinsfile \(Declarative Pipeline\)/)
+    end
+
+    it 'should contain a Scripted Pipeline' do
+      expect(rendering).to match(/Jenkinsfile \(Scripted Pipeline\)/)
+    end
+  end
 end
