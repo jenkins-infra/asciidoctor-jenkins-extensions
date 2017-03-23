@@ -116,11 +116,11 @@ Asciidoctor::Extensions.register do
       docfile = parent.document.attributes['docfile']
 
       if script_index < 0
-        puts "WARNING: [pipeline] block lacks `// Script //` section in #{docfile}".red
+        $stderr.puts "WARNING: [pipeline] block lacks `// Script //` section in #{docfile}".red
       end
 
       if decl_index < 0
-        puts "WARNING: [pipeline] block lacks `// Declarative //` section in #{docfile}".red
+        $stderr.puts "WARNING: [pipeline] block lacks `// Declarative //` section in #{docfile}".red
       end
 
       create_pass_block(parent, snippet.join(''), attrs)
