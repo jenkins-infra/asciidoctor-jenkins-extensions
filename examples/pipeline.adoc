@@ -1,0 +1,59 @@
+= [pipeline] block examples
+
+
+This file contains some examples for using the `[pipeline]` block
+
+== Defining both Scripted and Declarative
+
+[pipeline]
+----
+// Script //
+node {
+    stage('Build') {
+      checkout scm
+      // Install dependencies
+      sh 'npm install'
+    }
+}
+
+// Declarative //
+pipeline {
+    agent docker: 'node:6.3'
+    stages {
+        stage('Build') {
+            sh 'npm install'
+        }
+    }
+}
+----
+
+== Defining only one syntax
+
+=== Scripted
+
+[pipeline]
+----
+// Script //
+node {
+    stage('Build') {
+      checkout scm
+      // Install dependencies
+      sh 'npm install'
+    }
+}
+----
+
+=== Declarative
+
+[pipeline]
+----
+// Declarative //
+pipeline {
+    agent docker: 'node:6.3'
+    stages {
+        stage('Build') {
+            sh 'npm install'
+        }
+    }
+}
+----

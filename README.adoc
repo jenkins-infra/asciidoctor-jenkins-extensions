@@ -82,3 +82,19 @@ release a new version, update the version number in `version.rb`, and then run
 git commits and tags, and push the `.gem` file to
 [rubygems.org](https://rubygems.org).
 
+
+=== Acceptance Tests
+
+In order to make testing of extensions easier, there is a bit of support for
+live-page Asciidoc rendering with extensions live-reloaded on each page load.
+
+In the `examples/` directory you will find sample `.adoc` files which serve as
+test files for rendering with Asciidoctor and these extensions. To run the test
+server, assuming you have already executed `bundle install`, run:
+
+[source]
+----
+shotgun
+----
+
+And then navigate to link:http://localhost:9393/[localhost:9393]

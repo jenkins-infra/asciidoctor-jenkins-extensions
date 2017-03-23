@@ -1,0 +1,8 @@
+= Basic Example
+
+This is simple a basic example of *Asciidoc* formatting.
+
+
+Consult the
+link:http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[quick
+reference] for more
