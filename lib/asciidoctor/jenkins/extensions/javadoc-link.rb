@@ -35,9 +35,26 @@ Asciidoctor::Extensions.register do
       end
       classname = label = title = target
 
-      if classname.include? "." || plugin
+      package_parts = Array.new
+      simpleclass_parts = Array.new
+
+      is_package = true
+
+      classname.split('.').each do |part|
+        if is_package && /[[:lower:]]/.match(part[0])
+          package_parts.push(part)
+        else
+          is_package = false
+          simpleclass_parts.push(part)
+        end
+      end
+
+      package = package_parts.join('.')
+      simpleclass = simpleclass_parts.join('.')
+
+      if package.length > 0 || plugin
         classname = classname.gsub(/#.*/, '')
-        classurl = classname.gsub(/\./, '/') + ".html"
+        classurl = package.gsub(/\./, '/') + '/' + simpleclass + ".html"
 
         classfrag = (target.include? "#") ? '#' + target.gsub(/.*#/, '') : ''
 
