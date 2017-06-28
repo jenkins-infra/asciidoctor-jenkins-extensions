@@ -1,6 +1,6 @@
 = Asciidoctor::Jenkins::Extensions
 
-image::https://ci.jenkins.io/job/Infra/job/asciidoctor-jenkins-extensions/job/master/4/badge/icon["Build status", link="https://ci.jenkins.io/job/Infra/job/asciidoctor-jenkins-extensions/job/master]
+image::https://ci.jenkins.io/job/Infra/job/asciidoctor-jenkins-extensions/job/master/badge/icon["Build status", link="https://ci.jenkins.io/job/Infra/job/asciidoctor-jenkins-extensions/job/master"]
 
 
 This gem is a collection of Asciidoctor extensions which enable more advanced
