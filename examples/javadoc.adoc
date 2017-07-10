@@ -38,4 +38,6 @@ otherwise work the same way.
 Examples:
 
 * javadoc:java.io.File#pathSeparator[the path separator]
+* javadoc:java.nio.file.DirectoryStream.Filter[]
 * staplerdoc:org.kohsuke.stapler.AncestorInPath[]
+* staplerdoc:org.kohsuke.stapler.AncestorInPath.HandlerImpl[]
