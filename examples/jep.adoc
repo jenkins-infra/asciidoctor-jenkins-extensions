@@ -1,6 +1,6 @@
 = jep macro
 
-The `jep` inline macro can be used to link to plugins on the plugins index
+The `jep` inline macro can be used to link to Jenkins Enhancement Proposals
 at https://github.com/jenkinsci/jep/tree/master/jep.
 
 ### Example 1
