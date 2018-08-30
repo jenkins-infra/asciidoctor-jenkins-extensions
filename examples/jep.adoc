@@ -1,0 +1,29 @@
+= jep macro
+
+The `jep` inline macro can be used to link to Jenkins Enhancement Proposals
+at https://github.com/jenkinsci/jep/tree/master/jep.
+
+### Example 1
+
+jep:201[Jenkins Configuration as Code]
+
+Source:
+
+```
+jep:201[Jenkins Configuration as Code]
+```
+
+Result: link:https://github.com/jenkinsci/jep/blob/master/jep/201/README.adoc[JEP-201: Jenkins Configuration as Code]
+
+### Example 2
+
+jep:201[]
+
+Source:
+
+```
+jep:201[]
+```
+
+Result: link:https://github.com/jenkinsci/jep/blob/master/jep/201/README.adoc[JEP-201]
+
