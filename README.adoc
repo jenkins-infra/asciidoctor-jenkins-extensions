@@ -121,6 +121,9 @@ javadoc:java.io.File#pathSeparator[the path separator]
 staplerdoc:org.kohsuke.stapler.AncestorInPath[]
 ----
 
+=== Other macros (jep/jira/security)
+
+See [examples](./examples).
 
 == Development
 

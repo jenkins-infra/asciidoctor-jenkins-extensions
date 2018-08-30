@@ -1,0 +1,35 @@
+= security macro
+
+The `security` inline macro can be used to reference security fixes
+in Jenkins Security advisories: https://jenkins.io/security/advisories/.
+
+### Example 1. Referencing SECURITY issues
+
+The macro also allows referencing SECURITY issues.
+These issues are not public, so an advisory is linked instead.
+Currently it requires issueDate to be specified as a second macro argument.
+
+security:637["Jenkins allowed deserialization of URL objects with host components", "2018-08-15"]
+
+Source:
+
+```
+security:637["Jenkins allowed deserialization of URL objects with host components", "2018-08-15"]
+```
+
+Result: link:https://jenkins.io/security/advisory/2018-08-15/#SECURITY-637[SECURITY-637: Jenkins allowed deserialization of URL objects with host components]
+
+### Example 2. Referencing SECURITY issues without text
+
+The macro also allows referencing
+
+security:1076[date="2018-08-15"]
+
+Source:
+
+```
+security:1076[date="2018-08-15"]
+```
+
+Result: link:https://jenkins.io/security/advisory/2018-08-15/#SECURITY-1076[SECURITY-1076]
+
