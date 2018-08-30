@@ -3,7 +3,7 @@ require 'asciidoctor/extensions'
 
 #
 # Usage:
-# security:12345[Issue description]
+# security:12345[Issue description, date]
 #
 Asciidoctor::Extensions.register do
   inline_macro do
