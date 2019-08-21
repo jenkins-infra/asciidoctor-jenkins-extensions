@@ -4,7 +4,7 @@ pipeline {
     agent {
         docker {
             image 'ruby:2.4-alpine'
-            label 'docker'
+            label 'docker&&linux'
         }
     }
 
