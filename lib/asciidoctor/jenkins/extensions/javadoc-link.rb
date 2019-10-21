@@ -60,14 +60,14 @@ Asciidoctor::Extensions.register do
 
         if plugin
           label = (attrs.has_key? 'label') ? attrs['label'] : %(#{classname} in #{plugin})
-          target = %(http://javadoc.jenkins.io/plugin/#{plugin}/#{classurl}#{classfrag})
+          target = %(https://javadoc.jenkins.io/plugin/#{plugin}/#{classurl}#{classfrag})
         else
           label = (attrs.has_key? 'label') ? attrs['label'] : classname
-          target = %(http://javadoc.jenkins.io/#{classurl}#{classfrag})
+          target = %(https://javadoc.jenkins.io/#{classurl}#{classfrag})
         end
       else
         label = (attrs.has_key? 'label') ? attrs['label'] : classname
-        target = %(http://javadoc.jenkins.io/byShortName/#{classname})
+        target = %(https://javadoc.jenkins.io/byShortName/#{classname})
       end
 
       title = %(Javadoc for #{classname})
@@ -108,7 +108,7 @@ Asciidoctor::Extensions.register do
 
       classfrag = (target.include? "#") ? '#' + target.gsub(/.*#/, '') : ''
       label = (attrs.has_key? 'label') ? attrs['label'] : classname
-      target = %(http://stapler.kohsuke.org/apidocs/#{classurl}#{classfrag})
+      target = %(https://stapler.kohsuke.org/apidocs/#{classurl}#{classfrag})
 
       title = %(Javadoc for #{classname})
 
@@ -149,7 +149,7 @@ Asciidoctor::Extensions.register do
 
       classfrag = (target.include? "#") ? '#' + target.gsub(/.*#/, '') : ''
       label = (attrs.has_key? 'label') ? attrs['label'] : classname
-      target = %(http://docs.oracle.com/javase/7/docs/api/#{classurl}#{classfrag})
+      target = %(https://docs.oracle.com/javase/8/docs/api/#{classurl}#{classfrag})
 
       title = %(Javadoc for #{classname})
 

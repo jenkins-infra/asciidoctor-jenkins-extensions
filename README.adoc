@@ -90,7 +90,7 @@ plugin:git[The Git Plugin]
 
 === jenkinsdoc/staplerdoc/javadoc macros
 
-The `jenkinsdoc` inline macro can be used to link to the Jenkins Javadoc at http://javadoc.jenkins.io/.
+The `jenkinsdoc` inline macro can be used to link to the Jenkins Javadoc at https://javadoc.jenkins.io/.
 
 It supports a variety of different syntaxes. For classes in Jenkins core:
 
