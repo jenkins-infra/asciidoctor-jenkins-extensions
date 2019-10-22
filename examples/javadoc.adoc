@@ -4,7 +4,7 @@
 Below are some examples of using the `jenkinsdoc`, `staplerdoc`, and `javadoc`
 macros.
 
-The `jenkinsdoc` inline macro can be used to link to the Jenkins Javadoc at http://javadoc.jenkins.io/.
+The `jenkinsdoc` inline macro can be used to link to the Jenkins Javadoc at https://javadoc.jenkins.io/.
 
 It supports a variety of different syntaxes. For classes in Jenkins core:
 
@@ -27,6 +27,13 @@ For classes in plugins, the plugin's name (`artifactId`) is put before the class
 
 * jenkinsdoc:git:hudson.plugins.git.GitSCM[] links to the full URL for the class in the git plugin.
 * jenkinsdoc:git:hudson.plugins.git.GitSCM#getRepositories--[] links to the full URL for the class in the git plugin, and includes a fragment.
+
+---
+
+For classes in components, the component's (`artifactId`) is put before the class name and separated by colon, note the `component` selector is also required:
+
+* jenkinsdoc:component:remoting:hudson.remoting.Channel[] links to the full URL for the class in the remoting component.
+* jenkinsdoc:component:remoting:hudson.remoting.Channel#classLoadingCount[] links to the full URL for the class in the remoting component, and includes a fragment.
 
 ---
 
