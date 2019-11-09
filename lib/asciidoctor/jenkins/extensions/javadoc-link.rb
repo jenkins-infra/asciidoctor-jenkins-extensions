@@ -20,6 +20,14 @@ require 'asciidoctor/extensions'
 # jenkinsdoc:git:hudson.plugins.git.GitSCM[some label]
 # jenkinsdoc:git:hudson.plugins.git.GitSCM#anchor[]
 # jenkinsdoc:git:hudson.plugins.git.GitSCM#anchor[some label]
+#
+#
+# For component Javadoc:
+#
+# jenkinsdoc:component:remoting:hudson.remoting.Channel[]
+# jenkinsdoc:component:remoting:hudson.remoting.Channel[some label]
+# jenkinsdoc:component:remoting:hudson.remoting.Channel#anchor[]
+# jenkinsdoc:component:remoting:hudson.remoting.Channel#anchor[some label]
 
 Asciidoctor::Extensions.register do
   inline_macro do
@@ -29,8 +37,13 @@ Asciidoctor::Extensions.register do
     process do |parent, target, attrs|
 
       if target.include? ":"
-        parts = target.split(':', 2)
-        plugin = parts.first
+        parts = target.split(':', 3)
+
+        if parts.first == "component"
+          component = parts[1]
+        else
+          plugin = parts.first
+        end
         target = parts.last
       end
       classname = label = title = target
@@ -43,6 +56,13 @@ Asciidoctor::Extensions.register do
       classname.split('.').each do |part|
         if is_package && /[[:lower:]]/.match(part[0])
           package_parts.push(part)
+        elsif match = /(.*)#/.match(part)
+          class_part = match.captures
+          simpleclass_parts.push(class_part)
+          is_package = false
+
+          # escape once fragment has been found, required for complex fragments that contain a '.'
+          break
         else
           is_package = false
           simpleclass_parts.push(part)
@@ -52,22 +72,25 @@ Asciidoctor::Extensions.register do
       package = package_parts.join('.')
       simpleclass = simpleclass_parts.join('.')
 
-      if package.length > 0 || plugin
+      if package.length > 0 || plugin || component
         classname = classname.gsub(/#.*/, '')
         classurl = package.gsub(/\./, '/') + '/' + simpleclass + ".html"
 
-        classfrag = (target.include? "#") ? '#' + target.gsub(/.*#/, '') : ''
+        classfrag = (target.include? "#") ? '#' + target.gsub(/.*#/, '').gsub(/\(\)/, '--') : ''
 
         if plugin
           label = (attrs.has_key? 'label') ? attrs['label'] : %(#{classname} in #{plugin})
-          target = %(http://javadoc.jenkins.io/plugin/#{plugin}/#{classurl}#{classfrag})
+          target = %(https://javadoc.jenkins.io/plugin/#{plugin}/#{classurl}#{classfrag})
+        elsif component
+          label = (attrs.has_key? 'label') ? attrs['label'] : %(#{classname} in #{component})
+          target = %(https://javadoc.jenkins.io/component/#{component}/#{classurl}#{classfrag})
         else
           label = (attrs.has_key? 'label') ? attrs['label'] : classname
-          target = %(http://javadoc.jenkins.io/#{classurl}#{classfrag})
+          target = %(https://javadoc.jenkins.io/#{classurl}#{classfrag})
         end
       else
         label = (attrs.has_key? 'label') ? attrs['label'] : classname
-        target = %(http://javadoc.jenkins.io/byShortName/#{classname})
+        target = %(https://javadoc.jenkins.io/byShortName/#{classname})
       end
 
       title = %(Javadoc for #{classname})
@@ -92,8 +115,16 @@ Asciidoctor::Extensions.register do
       is_package = true
 
       classname.split('.').each do |part|
+        match = /(.*)#/.match(part)
         if is_package && /[[:lower:]]/.match(part[0])
           package_parts.push(part)
+        elsif match = /(.*)#/.match(part)
+          class_part = match.captures
+          simpleclass_parts.push(class_part)
+          is_package = false
+
+          # escape once fragment has been found, required for complex fragments that contain a '.'
+          break
         else
           is_package = false
           simpleclass_parts.push(part)
@@ -106,9 +137,9 @@ Asciidoctor::Extensions.register do
       classname = target.gsub(/#.*/, '')
       classurl = package.gsub(/\./, '/') + '/' + simpleclass + ".html"
 
-      classfrag = (target.include? "#") ? '#' + target.gsub(/.*#/, '') : ''
+      classfrag = (target.include? "#") ? '#' + target.gsub(/.*#/, '').gsub(/\(\)/, '--') : ''
       label = (attrs.has_key? 'label') ? attrs['label'] : classname
-      target = %(http://stapler.kohsuke.org/apidocs/#{classurl}#{classfrag})
+      target = %(https://stapler.kohsuke.org/apidocs/#{classurl}#{classfrag})
 
       title = %(Javadoc for #{classname})
 
@@ -135,6 +166,13 @@ Asciidoctor::Extensions.register do
       classname.split('.').each do |part|
         if is_package && /[[:lower:]]/.match(part[0])
           package_parts.push(part)
+        elsif match = /(.*)#/.match(part)
+          class_part = match.captures
+          simpleclass_parts.push(class_part)
+          is_package = false
+
+          # escape once fragment has been found, required for complex fragments that contain a '.'
+          break
         else
           is_package = false
           simpleclass_parts.push(part)
@@ -147,9 +185,9 @@ Asciidoctor::Extensions.register do
       classname = target.gsub(/#.*/, '')
       classurl = package.gsub(/\./, '/') + '/' + simpleclass + ".html"
 
-      classfrag = (target.include? "#") ? '#' + target.gsub(/.*#/, '') : ''
+      classfrag = (target.include? "#") ? '#' + target.gsub(/.*#/, '').gsub(/\(\)/, '--') : ''
       label = (attrs.has_key? 'label') ? attrs['label'] : classname
-      target = %(http://docs.oracle.com/javase/7/docs/api/#{classurl}#{classfrag})
+      target = %(https://docs.oracle.com/javase/8/docs/api/#{classurl}#{classfrag})
 
       title = %(Javadoc for #{classname})
 
