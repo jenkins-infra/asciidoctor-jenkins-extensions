@@ -26,7 +26,7 @@ formatting in Jenkins-related content.
   spec.require_paths = ["lib"]
 
 
-  spec.add_dependency 'asciidoctor', '~> 1.5.5'
+  spec.add_dependency 'asciidoctor', '>= 1.5.5'
   spec.add_dependency 'coderay', '~> 1.1.1'
   spec.add_dependency 'colorize', '~> 0.8.1'
 
