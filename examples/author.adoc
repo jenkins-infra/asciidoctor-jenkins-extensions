@@ -1,0 +1,28 @@
+= Author macro
+
+The `author` inline macro can be used to link to author's blog page.
+
+### Example 1
+
+author:timja[Tim Jacomb]
+
+Source:
+
+```
+author:timja[Tim Jacomb]
+```
+
+Result: link:/blog/authors/timja[Tim Jacomb]
+
+### Example 2
+
+author:timja[]
+
+Source:
+
+```
+author:timja[]
+```
+
+Result: link:/blog/authors/timja[timja]
+
