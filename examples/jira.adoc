@@ -1,7 +1,7 @@
 = jira macro
 
 The `jira` inline macro can be used to link to plugins on the plugins index
-at http://issues.jenkins-ci.org/.
+at https://issues.jenkins.io/.
 
 ### Example 1. Referencing JENKINS project
 
@@ -13,7 +13,7 @@ Source:
 jira:38313[Jenkins Configuration as Code]
 ```
 
-Result: link:https://issues.jenkins-ci.org/browse/JENKINS-38313[JENKINS-38313: External Build Log storage for Jenkins]
+Result: link:https://issues.jenkins.io/browse/JENKINS-38313[JENKINS-38313: External Build Log storage for Jenkins]
 
 ### Example 2. Referencing non-JENKINS projects
 
@@ -25,7 +25,7 @@ Source:
 jira:INFRA-1760[Create "jep" and "jira" macros for jenkins.io]
 ```
 
-Result: link:https://issues.jenkins-ci.org/browse/INFRA-1760[INFRA-1760: Create "jep" and "jira" macros for jenkins.io]
+Result: link:https://issues.jenkins.io/browse/INFRA-1760[INFRA-1760: Create "jep" and "jira" macros for jenkins.io]
 
 ### Example 3. Reference without text
 
@@ -37,4 +37,4 @@ Source:
 jira:38313[]
 ```
 
-Result: link:https://issues.jenkins-ci.org/browse/JENKINS-38313[JENKINS-38313]
+Result: link:https://issues.jenkins.io/browse/JENKINS-38313[JENKINS-38313]
