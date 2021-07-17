@@ -139,7 +139,7 @@ Asciidoctor::Extensions.register do
 
       classfrag = (target.include? "#") ? '#' + target.gsub(/.*#/, '').gsub(/\(\)/, '--') : ''
       label = (attrs.has_key? 'label') ? attrs['label'] : classname
-      target = %(https://stapler.kohsuke.org/apidocs/#{classurl}#{classfrag})
+      target = %(https://javadoc.jenkins.io/component/stapler/#{classurl}#{classfrag})
 
       title = %(Javadoc for #{classname})
 
