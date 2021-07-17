@@ -12,7 +12,7 @@ describe 'the staplerdoc macro' do
         }
 
         it 'should render properly' do
-            expect(rendering).to match(/https:\/\/stapler.kohsuke.org\/apidocs\/org\/kohsuke\/stapler\/AncestorInPath.html.+>org.kohsuke.stapler.AncestorInPath/)
+            expect(rendering).to match(/https:\/\/javadoc.jenkins.io\/component\/stapler\/org\/kohsuke\/stapler\/AncestorInPath.html.+>org.kohsuke.stapler.AncestorInPath/)
         end
     end
 
@@ -22,7 +22,7 @@ describe 'the staplerdoc macro' do
         }
 
         it 'should render properly' do
-            expect(rendering).to match(/https:\/\/stapler.kohsuke.org\/apidocs\/org\/kohsuke\/stapler\/AncestorInPath.html.+>a label/)
+            expect(rendering).to match(/https:\/\/javadoc.jenkins.io\/component\/stapler\/org\/kohsuke\/stapler\/AncestorInPath.html.+>a label/)
         end
     end
 
@@ -32,7 +32,7 @@ describe 'the staplerdoc macro' do
         }
 
         it 'should render properly' do
-            expect(rendering).to match(/https:\/\/stapler.kohsuke.org\/apidocs\/org\/kohsuke\/stapler\/WebMethodContext.html#getName--.+>org.kohsuke.stapler.WebMethodContext/)
+            expect(rendering).to match(/https:\/\/javadoc.jenkins.io\/component\/stapler\/org\/kohsuke\/stapler\/WebMethodContext.html#getName--.+>org.kohsuke.stapler.WebMethodContext/)
         end
     end
 
@@ -42,7 +42,7 @@ describe 'the staplerdoc macro' do
         }
 
         it 'should render properly' do
-            expect(rendering).to match(/https:\/\/stapler.kohsuke.org\/apidocs\/org\/kohsuke\/stapler\/ReflectionUtils.html#union-java.lang.annotation.Annotation:A-java.lang.annotation.Annotation:A-.+>org.kohsuke.stapler.ReflectionUtils/)
+            expect(rendering).to match(/https:\/\/javadoc.jenkins.io\/component\/stapler\/org\/kohsuke\/stapler\/ReflectionUtils.html#union-java.lang.annotation.Annotation:A-java.lang.annotation.Annotation:A-.+>org.kohsuke.stapler.ReflectionUtils/)
         end
     end
 end
