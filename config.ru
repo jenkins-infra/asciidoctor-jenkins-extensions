@@ -84,17 +84,17 @@ EOF
     route = example_routes[index]
     get "/#{route}" do
       asciidoc route.to_sym,
-                  :layout_engine => :erb,
-                  :locals => { :name => route,
-                               :raw => File.read(examples[index]),
-                               :examples => example_routes,
-      }
+               layout_engine: :erb,
+               locals: { name: route,
+                         raw: File.read(examples[index]),
+                         examples: example_routes,
+               }
     end
     puts "Registered route /#{route}".green
   end
 
   get '/' do
-    erb :index, :layout => false, :locals => { :examples => example_routes }
+    erb :index, layout: false, locals: { examples: example_routes }
   end
 end
 

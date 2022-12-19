@@ -95,7 +95,7 @@ Asciidoctor::Extensions.register do
 
       title = %(Javadoc for #{classname})
 
-      (create_anchor parent, label, type: :link, target: target, attributes: {'title' => title}).render
+      (create_anchor parent, label, type: :link, target: target, attributes: { title: title }).render
     end
   end
 end
@@ -143,7 +143,7 @@ Asciidoctor::Extensions.register do
 
       title = %(Javadoc for #{classname})
 
-      (create_anchor parent, label, type: :link, target: target, attributes: {'title' => title}).render
+      (create_anchor parent, label, type: :link, target: target, attributes: { title: title }).render
     end
   end
 end
@@ -166,7 +166,7 @@ Asciidoctor::Extensions.register do
       classname.split('.').each do |part|
         if is_package && /[[:lower:]]/.match(part[0])
           package_parts.push(part)
-        elsif match = /(.*)#/.match(part)
+        elsif (match = /(.*)#/.match(part))
           class_part = match.captures
           simpleclass_parts.push(class_part)
           is_package = false
@@ -191,7 +191,7 @@ Asciidoctor::Extensions.register do
 
       title = %(Javadoc for #{classname})
 
-      (create_anchor parent, label, type: :link, target: target, attributes: {'title' => title}).render
+      (create_anchor parent, label, type: :link, target: target, attributes: { title: title }).render
     end
   end
 end
