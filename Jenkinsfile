@@ -19,7 +19,7 @@ pipeline {
 
     post {
         always {
-            archiveArtifacts( artifacts: 'pkg/*.gem')
+            archiveArtifacts('pkg/*.gem')
             junit 'spec/reports/**/*.xml'
         }
     }
