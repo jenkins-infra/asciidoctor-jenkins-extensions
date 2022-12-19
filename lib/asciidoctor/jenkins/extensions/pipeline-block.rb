@@ -25,7 +25,7 @@ Asciidoctor::Extensions.register do
       # out that our parser is going to delete WHATEVER style attribute we
       # would give the block if we used #create_listing_block()
       #
-      # Ouch: <https://github.com/asciidoctor/asciidoctor/blob/master/lib/asciidoctor/parser.rb#L1086-L1087>
+      # Ouch: <https://github.com/asciidoctor/asciidoctor/blob/main/lib/asciidoctor/parser.rb#L1086-L1087>
       snippet = ['<div class="pipeline-block">']
 
       if decl_index >= 0
