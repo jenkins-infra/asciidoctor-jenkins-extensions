@@ -4,5 +4,13 @@
     "config:base",
     ":semanticCommitsDisabled"
   ],
+  "regexManagers": [
+    {
+      "fileMatch": ["Jenkinsfile"],
+      "matchStrings": ["image 'ruby:(?<currentValue>.*?)'\n"],
+      "depNameTemplate": "ruby",
+      "datasourceTemplate": "docker"
+    }
+  ],
   "rebaseWhen": "conflicted"
 }
