@@ -60,7 +60,7 @@ PLATFORMS
 
 DEPENDENCIES
   asciidoctor-jenkins-extensions!
-  bundler (~> 2.1.4)
+  bundler (~> 2.3.26)
   ci_reporter (~> 2.0)
   ci_reporter_rspec (~> 1.0)
   pry
@@ -71,4 +71,4 @@ DEPENDENCIES
   sinatra
 
 BUNDLED WITH
-   2.1.4
+   2.3.26
