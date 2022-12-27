@@ -35,6 +35,4 @@ formatting in Jenkins-related content.
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "rspec-its"
   spec.add_development_dependency 'pry'
-  spec.add_development_dependency 'ci_reporter', '~> 2.0'
-  spec.add_development_dependency 'ci_reporter_rspec', '~> 1.0'
 end
