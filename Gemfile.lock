@@ -10,12 +10,6 @@ GEM
   remote: https://rubygems.org/
   specs:
     asciidoctor (2.0.18)
-    builder (3.2.4)
-    ci_reporter (2.0.0)
-      builder (>= 2.1.2)
-    ci_reporter_rspec (1.0.0)
-      ci_reporter (~> 2.0)
-      rspec (>= 2.14, < 4)
     coderay (1.1.3)
     colorize (0.8.1)
     diff-lcs (1.5.0)
@@ -61,8 +55,6 @@ PLATFORMS
 DEPENDENCIES
   asciidoctor-jenkins-extensions!
   bundler (~> 2.3.26)
-  ci_reporter (~> 2.0)
-  ci_reporter_rspec (~> 1.0)
   pry
   rake (~> 13.0.3)
   rspec
