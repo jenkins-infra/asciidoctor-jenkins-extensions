@@ -3,7 +3,7 @@
 pipeline {
     agent {
         docker {
-            image 'ruby:3.4.7'
+            image 'ruby:3.4.8'
             label 'docker&&linux'
         }
     }
