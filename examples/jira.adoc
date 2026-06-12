@@ -1,16 +1,17 @@
 = jira macro
 
-The `jira` inline macro can be used to link to plugins on the plugins index
-at https://issues.jenkins.io/ and uses the issue-redirect.jenkins.io service to open the correct issue.
+The `jira` inline macro can be used to link to link:https://issues.jenkins.io/[Jira] issues.
+It uses the link:https://github.com/jenkins-infra/asciidoctor-jenkins-extensions/[issue-redirect.jenkins.io service] to open the correct issue.
+If issue tracking has moved from Jira to GitHub for a specific issue, the redirect will open the issue in GitHub.
 
 ### Example 1. Referencing JENKINS project
 
-jira:38313[Jenkins Configuration as Code]
+jira:JENKINS-38313[Jenkins Configuration as Code]
 
 Source:
 
 ```
-jira:38313[Jenkins Configuration as Code]
+jira:JENKINS-38313[Jenkins Configuration as Code]
 ```
 
 Result: link:https://issue-redirect.jenkins.io/JENKINS-38313[JENKINS-38313: External Build Log storage for Jenkins]
@@ -29,12 +30,12 @@ Result: link:https://issue-redirect.jenkins.io/INFRA-1760[INFRA-1760: Create "je
 
 ### Example 3. Reference without text
 
-jira:38313[]
+jira:JENKINS-38313[]
 
 Source:
 
 ```
-jira:38313[]
+jira:JENKINS-38313[]
 ```
 
 Result: link:https://issue-redirect.jenkins.io/JENKINS-38313[JENKINS-38313]
