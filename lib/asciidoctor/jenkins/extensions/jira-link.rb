@@ -13,15 +13,8 @@ Asciidoctor::Extensions.register do
     process do |parent, target, attrs|
       if target.include? "-"
         issueId = target
-        if target.start_with?("JENKINS-")
-          issueNumber = target.split('-', 2).last
-        else
-          # WEBSITE-662 and similar need the full string as issue number
-          issueNumber = target
-        end
       else
         issueId = %(JENKINS-#{target})
-        issueNumber = target
       end
 
       if attrs['label']
@@ -30,7 +23,7 @@ Asciidoctor::Extensions.register do
         label = issueId
       end
 
-      target = %(https://issue-redirect.jenkins.io/issue/#{issueNumber})
+      target = %(https://issue-redirect.jenkins.io/#{issueId})
       (create_anchor parent, label, type: :link, target: target).render
     end
   end
