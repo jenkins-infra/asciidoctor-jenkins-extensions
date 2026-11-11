@@ -31,7 +31,7 @@ formatting in Jenkins-related content.
   spec.add_dependency 'colorize', '~> 0.8.1'
 
   spec.add_development_dependency "bundler", "~> 2.3.26"
-  spec.add_development_dependency "rake", "~> 13.0.3"
+  spec.add_development_dependency "rake", "~> 13.4.0"
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "rspec-its"
   spec.add_development_dependency 'pry'
