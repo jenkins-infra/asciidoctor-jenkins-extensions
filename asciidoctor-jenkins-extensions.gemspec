@@ -28,7 +28,7 @@ formatting in Jenkins-related content.
 
   spec.add_dependency 'asciidoctor', '>= 2.0.18'
   spec.add_dependency 'coderay', '~> 1.1.3'
-  spec.add_dependency 'colorize', '~> 0.8.1'
+  spec.add_dependency 'colorize', '~> 1.1.0'
 
   spec.add_development_dependency "bundler", "~> 2.3.26"
   spec.add_development_dependency "rake", "~> 13.0.3"
